@@ -9,11 +9,15 @@ import EarlyAccessForm from "@/components/EarlyAccessForm";
 import FAQ from "@/components/FAQ";
 import FounderSection from "@/components/FounderSection";
 import Footer from "@/components/Footer";
+import PageSEO from "@/components/seo/PageSEO";
+import { PAGE_META } from "@/lib/seo";
+import { initAnalytics } from "@/lib/analytics";
 
 export default function Home() {
   const [isLive, setIsLive] = useState(false);
 
   useEffect(() => {
+    initAnalytics();
     const check = () => {
       if (Date.now() >= LAUNCH_TIME.getTime()) setIsLive(true);
     };
@@ -24,6 +28,7 @@ export default function Home() {
 
   return (
     <div className="min-h-[100dvh] bg-background text-foreground flex flex-col font-sans antialiased">
+      <PageSEO {...PAGE_META.home} />
       <Header />
       <main className="flex-1">
         <HeroSection isLive={isLive} />

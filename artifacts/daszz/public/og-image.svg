@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0d0d10"/>
+  <defs>
+    <radialGradient id="glow" cx="55%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#3b4fd4" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0d0d10" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <!-- Face silhouette lines -->
+  <ellipse cx="820" cy="315" rx="130" ry="185" fill="none" stroke="#818cf8" stroke-width="1.2" opacity="0.35"/>
+  <ellipse cx="820" cy="315" rx="90" ry="138" fill="none" stroke="#a5b4fc" stroke-width="0.8" opacity="0.25"/>
+  <ellipse cx="795" cy="278" rx="36" ry="14" fill="none" stroke="#818cf8" stroke-width="1" opacity="0.4"/>
+  <ellipse cx="848" cy="278" rx="36" ry="14" fill="none" stroke="#818cf8" stroke-width="1" opacity="0.4"/>
+  <path d="M 784 368 Q 820 385 856 368" fill="none" stroke="#a5b4fc" stroke-width="1" opacity="0.45"/>
+  <!-- Word mark -->
+  <text x="120" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="96" font-weight="700" letter-spacing="-2" fill="#ffffff">DASZZ</text>
+  <text x="122" y="370" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="400" letter-spacing="1" fill="rgba(255,255,255,0.5)">Your skin. Understood.</text>
+  <text x="122" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="400" fill="rgba(255,255,255,0.35)">Personalized skincare intelligence.</text>
+  <!-- Bottom bar -->
+  <rect x="120" y="500" width="48" height="2" fill="#818cf8" opacity="0.7"/>
+  <text x="120" y="545" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="rgba(255,255,255,0.3)">Launching June 12, 2026</text>
+</svg>
