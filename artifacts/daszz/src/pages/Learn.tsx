@@ -10,6 +10,13 @@ import { articles } from "@/content/learn";
 
 const categories = [...new Set(articles.map((a) => a.category))];
 
+const exploreLinks = [
+  { label: "Personalized Skincare Intelligence →", href: "/skincare-intelligence" },
+  { label: "Digital Skin Twin →", href: "/digital-skin-twin" },
+  { label: "Skin Tracking →", href: "/skin-tracking" },
+  { label: "Personalized Skincare →", href: "/personalized-skincare" },
+];
+
 export default function Learn() {
   const meta = PAGE_META.learn;
 
@@ -31,7 +38,7 @@ export default function Learn() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen" style={{ background: "#07110D", color: "#F4F1E8" }}>
       <PageSEO {...meta} />
       <JsonLd data={schema} />
       <Header />
@@ -40,30 +47,49 @@ export default function Learn() {
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Learn", href: "/learn" }]} />
 
           <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+            <h1 className="font-display text-4xl md:text-5xl tracking-tight mb-4" style={{ color: "#F4F1E8" }}>
               Skincare Learning Hub
             </h1>
-            <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+            <p className="text-lg max-w-xl leading-relaxed" style={{ color: "#9DAEA4" }}>
               Practical guides on building a skincare routine, tracking your skin, understanding skin concerns, and making better product decisions.
             </p>
           </div>
 
-          {/* Product vision links */}
-          <section className="mb-12 border border-white/5 bg-white/[0.02] p-6" aria-labelledby="explore-heading">
-            <h2 id="explore-heading" className="text-xs font-semibold tracking-widest text-primary uppercase mb-5">Explore Daszz</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                { label: "Personalized Skincare Intelligence", href: "/skincare-intelligence" },
-                { label: "Digital Skin Twin", href: "/digital-skin-twin" },
-                { label: "Skin Tracking", href: "/skin-tracking" },
-                { label: "Personalized Skincare", href: "/personalized-skincare" },
-              ].map((l) => (
+          {/* Explore Daszz links */}
+          <section
+            className="mb-12 p-6"
+            style={{ border: "1px solid rgba(183,228,199,0.10)", background: "rgba(143,207,176,0.02)" }}
+            aria-labelledby="explore-heading"
+          >
+            <h2
+              id="explore-heading"
+              className="text-[9px] font-semibold tracking-[0.22em] uppercase mb-5"
+              style={{ color: "#6FAF91" }}
+            >
+              EXPLORE DASZZ
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {exploreLinks.map((l) => (
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="block p-4 border border-white/5 hover:bg-white/[0.04] transition-colors text-sm font-medium text-muted-foreground hover:text-white"
+                  className="block p-4 text-sm transition-all"
+                  style={{
+                    border: "1px solid rgba(183,228,199,0.08)",
+                    color: "#9DAEA4",
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = "rgba(143,207,176,0.06)";
+                    e.currentTarget.style.color = "#F4F1E8";
+                    e.currentTarget.style.borderColor = "rgba(183,228,199,0.20)";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.color = "#9DAEA4";
+                    e.currentTarget.style.borderColor = "rgba(183,228,199,0.08)";
+                  }}
                 >
-                  {l.label} →
+                  {l.label}
                 </Link>
               ))}
             </div>
@@ -72,11 +98,16 @@ export default function Learn() {
           {/* Articles by category */}
           {categories.map((cat) => {
             const catArticles = articles.filter((a) => a.category === cat);
+            const catId = `cat-${cat.toLowerCase().replace(/\s+/g, "-")}`;
             return (
-              <section key={cat} className="mb-14" aria-labelledby={`cat-${cat.toLowerCase().replace(/\s+/g, "-")}`}>
+              <section key={cat} className="mb-14" aria-labelledby={catId}>
                 <h2
-                  id={`cat-${cat.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="text-lg font-semibold mb-5 pb-3 border-b border-white/5"
+                  id={catId}
+                  className="text-lg font-medium mb-5 pb-3"
+                  style={{
+                    color: "#F4F1E8",
+                    borderBottom: "1px solid rgba(183,228,199,0.08)",
+                  }}
                 >
                   {cat}
                 </h2>
@@ -87,7 +118,7 @@ export default function Learn() {
             );
           })}
 
-          <div className="mt-4 text-xs text-muted-foreground/50 leading-relaxed">
+          <div className="mt-4 text-xs leading-relaxed" style={{ color: "#9DAEA4", opacity: 0.45 }}>
             All articles are written by the Daszz Editorial Team for informational purposes only. They are not a substitute for professional medical advice, diagnosis, or treatment. Consult a qualified dermatologist for any skin concerns.
           </div>
         </div>

@@ -1,90 +1,122 @@
 import { Link } from "wouter";
 
-const productLinks = [
-  { label: "Personalized Skincare Intelligence", href: "/skincare-intelligence" },
-  { label: "Digital Skin Twin", href: "/digital-skin-twin" },
-  { label: "Skin Tracking", href: "/skin-tracking" },
-  { label: "Personalized Skincare", href: "/personalized-skincare" },
-];
-
-const learnLinks = [
-  { label: "How to Build a Skincare Routine", href: "/learn/how-to-build-a-skincare-routine" },
-  { label: "How to Track Skin Changes", href: "/learn/how-to-track-skin-changes-over-time" },
-  { label: "What is a Digital Skin Twin?", href: "/learn/what-is-a-digital-skin-twin" },
-  { label: "Understanding Acne-Prone Skin", href: "/learn/understanding-acne-prone-skin" },
-  { label: "Understanding Dark Spots", href: "/learn/understanding-dark-spots-and-pigmentation" },
-  { label: "Oily, Dry, and Combination Skin", href: "/learn/oily-dry-and-combination-skin" },
-  { label: "Why Consistency Matters", href: "/learn/why-consistency-matters-in-skincare" },
-  { label: "How to Evaluate a Skincare Product", href: "/learn/how-to-evaluate-a-skincare-product" },
-];
-
-const companyLinks = [
-  { label: "About Daszz", href: "/about" },
-  { label: "Learn", href: "/learn" },
+const navColumns = [
+  {
+    heading: "Explore",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Personalized Skincare", href: "/personalized-skincare" },
+      { label: "Digital Skin Twin", href: "/digital-skin-twin" },
+      { label: "Skin Tracking", href: "/skin-tracking" },
+      { label: "Learn", href: "/learn" },
+    ],
+  },
+  {
+    heading: "Articles",
+    links: [
+      { label: "How to Build a Skincare Routine", href: "/learn/how-to-build-a-skincare-routine" },
+      { label: "Track Skin Changes Over Time", href: "/learn/how-to-track-skin-changes-over-time" },
+      { label: "What is a Digital Skin Twin?", href: "/learn/what-is-a-digital-skin-twin" },
+      { label: "Understanding Acne-Prone Skin", href: "/learn/understanding-acne-prone-skin" },
+      { label: "Dark Spots and Pigmentation", href: "/learn/understanding-dark-spots-and-pigmentation" },
+      { label: "Oily, Dry, and Combination Skin", href: "/learn/oily-dry-and-combination-skin" },
+      { label: "Why Consistency Matters", href: "/learn/why-consistency-matters-in-skincare" },
+      { label: "How to Evaluate a Product", href: "/learn/how-to-evaluate-a-skincare-product" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "Privacy", href: "#" },
+      { label: "Terms", href: "#" },
+      { label: "Instagram", href: "#" },
+    ],
+  },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-black/60">
-      <div className="container mx-auto px-6 py-16 max-w-7xl">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+    <footer
+      style={{
+        borderTop: "1px solid rgba(183,228,199,0.10)",
+        background: "#0B1712",
+      }}
+    >
+      <div className="container mx-auto px-6 py-20 max-w-7xl">
+        {/* Top: brand + nav */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="text-xl font-bold tracking-tight mb-4">DASZZ</div>
-            <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-              Personalized skincare intelligence designed to help you understand your skin, track meaningful changes, and make more informed skincare decisions.
+            <div
+              className="text-lg font-semibold tracking-[0.15em] mb-3"
+              style={{ color: "#F4F1E8" }}
+            >
+              DASZZ
+            </div>
+            <p className="text-sm mb-6" style={{ color: "#6FAF91", fontStyle: "italic" }}>
+              Your skin. Understood.
+            </p>
+            <p className="text-xs leading-relaxed max-w-xs" style={{ color: "#9DAEA4", lineHeight: "1.8" }}>
+              A new era of personalized skincare intelligence. Launching 12 June 2026.
             </p>
           </div>
 
-          <div>
-            <h3 className="text-xs font-semibold tracking-widest text-white/40 uppercase mb-4">Product</h3>
-            <ul className="space-y-2.5">
-              {productLinks.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-muted-foreground hover:text-white transition-colors">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-xs font-semibold tracking-widest text-white/40 uppercase mb-4">Learn</h3>
-            <ul className="space-y-2.5">
-              {learnLinks.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-muted-foreground hover:text-white transition-colors">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-xs font-semibold tracking-widest text-white/40 uppercase mb-4">Company</h3>
-            <ul className="space-y-2.5">
-              {companyLinks.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-muted-foreground hover:text-white transition-colors">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 space-y-2.5">
-              <a href="#" className="block text-sm text-muted-foreground hover:text-white transition-colors">Privacy</a>
-              <a href="#" className="block text-sm text-muted-foreground hover:text-white transition-colors">Terms</a>
-              <a href="#" className="block text-sm text-muted-foreground hover:text-white transition-colors">Instagram</a>
+          {/* Nav columns */}
+          {navColumns.map((col) => (
+            <div key={col.heading}>
+              <h3
+                className="text-[9px] font-semibold tracking-[0.22em] uppercase mb-5"
+                style={{ color: "#6FAF91" }}
+              >
+                {col.heading}
+              </h3>
+              <ul className="space-y-3">
+                {col.links.map((l) => (
+                  <li key={l.label}>
+                    {"href" in l && l.href.startsWith("/") && !l.href.startsWith("/#") ? (
+                      <Link
+                        href={l.href}
+                        className="text-sm transition-colors"
+                        style={{ color: "#9DAEA4" }}
+                        onMouseEnter={e => { e.currentTarget.style.color = "#F4F1E8"; }}
+                        onMouseLeave={e => { e.currentTarget.style.color = "#9DAEA4"; }}
+                      >
+                        {l.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={l.href}
+                        className="text-sm transition-colors"
+                        style={{ color: "#9DAEA4" }}
+                        onMouseEnter={e => { e.currentTarget.style.color = "#F4F1E8"; }}
+                        onMouseLeave={e => { e.currentTarget.style.color = "#9DAEA4"; }}
+                      >
+                        {l.label}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          ))}
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-t border-white/5 pt-8">
-          <div className="text-xs text-muted-foreground/50">© 2026 Daszz. All rights reserved.</div>
-          <div className="text-xs text-muted-foreground/40 max-w-sm text-right">
-            Daszz provides skincare insights and tracking tools only. Not a substitute for professional medical advice, diagnosis, or treatment. Founded by Varneeth Varma and Sumanth.
+        {/* Bottom bar */}
+        <div
+          className="pt-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6"
+          style={{ borderTop: "1px solid rgba(183,228,199,0.07)" }}
+        >
+          <div className="space-y-1.5">
+            <p className="text-xs" style={{ color: "#9DAEA4", opacity: 0.6 }}>
+              © 2026 Daszz. All rights reserved.
+            </p>
+            <p className="text-xs" style={{ color: "#9DAEA4", opacity: 0.5 }}>
+              Founded by Varneeth Varma and Sumanth.
+            </p>
           </div>
+          <p className="text-[10px] max-w-xs text-right leading-relaxed" style={{ color: "#9DAEA4", opacity: 0.4 }}>
+            Daszz provides skincare insights and tracking tools. It does not provide medical diagnosis or replace professional medical advice.
+          </p>
         </div>
       </div>
     </footer>

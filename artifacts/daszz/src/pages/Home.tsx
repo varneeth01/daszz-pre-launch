@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import VisionSection from "@/components/VisionSection";
 import ExperiencePoints from "@/components/ExperiencePoints";
 import LaunchStrip from "@/components/LaunchStrip";
+import DigitalSkinTwinSection from "@/components/DigitalSkinTwinSection";
 import EarlyAccessForm from "@/components/EarlyAccessForm";
 import FAQ from "@/components/FAQ";
 import FounderSection from "@/components/FounderSection";
@@ -35,6 +36,7 @@ export default function Home() {
         <LaunchStrip />
         <VisionSection />
         <ExperiencePoints />
+        <DigitalSkinTwinSection />
         {!isLive && <EarlyAccessForm />}
         <FAQ />
         <FounderSection />

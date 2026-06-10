@@ -1,0 +1,777 @@
+Redesign the entire Daszz public website UI from scratch using a premium green skincare identity.
+
+Do not make minor cosmetic edits. Do not only replace the existing blue color with green. Change the complete visual system from the header to the footer while preserving all working functionality, SEO work, routes, countdown logic, and integrations.
+
+Inspect the current implementation first. Then implement the redesign directly, run the website, test responsive layouts, run lint and build checks, and fix all errors before stopping.
+
+---
+
+# 1. Preserve Functionality Exactly
+
+Do not break, remove, or rewrite working business logic.
+
+Preserve:
+
+* Countdown ending exactly at `2026-06-12T10:00:00+05:30`
+* Early-access buttons
+* Smooth scrolling to the signup form
+* Email-input focus after CTA clicks
+* Firestore early-access persistence
+* Duplicate-email handling
+* Form loading, success, and error states
+* SEO metadata
+* Canonical tags
+* Sitemap
+* Robots file
+* JSON-LD structured data
+* Google Search Console support
+* Analytics support
+* Educational SEO pages
+* Internal links
+* Founder information for **Varneeth Varma** and **Sumanth**
+* Mobile responsiveness
+* Reduced-motion support
+* WebGL fallback
+* Accessibility labels and keyboard navigation
+
+This is a **UI redesign only**. Do not change backend APIs, database collections, environment-variable names, routes, or submission logic unless a bug is discovered during testing.
+
+---
+
+# 2. New Brand Direction
+
+Daszz means confidence, radiance, and healthy skin. The visual identity should feel like a premium skincare brand with advanced personalized intelligence.
+
+The website must feel:
+
+* Premium
+* Calm
+* Trustworthy
+* Natural
+* Modern
+* Refined
+* Human-designed
+* Slightly futuristic
+* Related to skin health and transformation
+
+The website must not feel:
+
+* Like a generic SaaS template
+* Like a gaming website
+* Like a cryptocurrency landing page
+* Like an AI-generated design
+* Like a medical hospital website
+* Overly feminine or overly clinical
+* Cluttered
+* Excessively neon
+* Filled with repetitive cards
+
+The green color must communicate **skin health, renewal, trust, nature, and progress**, not an agricultural or environmental startup.
+
+---
+
+# 3. Green Color System
+
+Replace the current blue-indigo-heavy palette with a carefully balanced premium green palette.
+
+Use these colors consistently through CSS variables or Tailwind theme tokens:
+
+```css
+:root {
+  --background-deep: #07110D;
+  --background-primary: #0B1712;
+  --background-elevated: #102019;
+  --background-soft: #15271F;
+
+  --green-primary: #8FCFB0;
+  --green-bright: #B7E4C7;
+  --green-muted: #6FAF91;
+  --green-deep: #2F6B55;
+  --green-dark: #1C4939;
+
+  --cream-primary: #F4F1E8;
+  --cream-muted: #C9CEC3;
+  --text-secondary: #9DAEA4;
+
+  --border-soft: rgba(183, 228, 199, 0.16);
+  --border-hover: rgba(183, 228, 199, 0.38);
+
+  --glow-soft: rgba(143, 207, 176, 0.16);
+  --glow-strong: rgba(143, 207, 176, 0.32);
+}
+```
+
+Use `#07110D` as the main dark backdrop rather than pure black.
+
+Use cream text rather than stark white.
+
+Use green glows sparingly. The page should look expensive and restrained.
+
+Do not add bright lime green, fluorescent green, or excessive gradients.
+
+---
+
+# 4. Rebuild the Entire Homepage UI
+
+Redesign every section rather than patching the old structure.
+
+## Header
+
+Create a minimal floating header.
+
+Desktop layout:
+
+* Daszz wordmark on the left
+* Links in the center:
+
+  * Vision
+  * Digital Skin Twin
+  * Learn
+  * About
+* Launch-date text
+* `Get early access` CTA button on the right
+
+Mobile layout:
+
+* Daszz wordmark
+* Launch-date indicator
+* Compact menu button
+* Accessible slide-down menu
+
+Style:
+
+* Transparent initially
+* Soft green-tinted backdrop blur after scroll
+* Thin bottom border
+* Compact height
+* No oversized navigation
+* No heavy pill-shaped containers
+
+---
+
+## Hero Section
+
+Completely rebuild the hero section.
+
+### Desktop Layout
+
+Use a two-column editorial composition:
+
+* Left: launch message, countdown, CTAs
+* Right: green digital-skin-twin reveal visual
+
+### Mobile Layout
+
+* Visual behind or above the text
+* Countdown remains easy to read
+* CTA remains prominent
+* No horizontal overflow
+* Keep the important content close to the top
+
+### Hero Copy
+
+Small label:
+
+```txt
+PRIVATE REVEAL · DASZZ 2026
+```
+
+Main headline:
+
+```txt
+YOUR SKIN.
+UNDERSTOOD.
+```
+
+Supporting copy:
+
+```txt
+A new era of personalized skincare intelligence is about to be revealed.
+```
+
+Secondary copy:
+
+```txt
+Track meaningful changes. Understand your skin more clearly. Build a routine that evolves with you.
+```
+
+CTA buttons:
+
+```txt
+Get early access
+Discover the vision
+```
+
+Launch-date line:
+
+```txt
+REVEALING · 12 JUNE 2026 · 10:00 AM IST
+```
+
+Use strong typography and generous breathing space. Do not use an excessively large headline that creates awkward empty space.
+
+---
+
+# 5. Countdown Redesign
+
+Keep the timer logic exactly the same, but redesign its presentation.
+
+Use:
+
+* Four refined number columns on desktop
+* Two-by-two grid on narrow phones
+* Thin green borders
+* Cream-colored numeric text
+* Muted green labels
+* Subtle highlight when a number changes
+* A restrained reveal-progress line beneath the timer
+* A percentage label showing how much of the 36-hour reveal period has passed
+
+Timer labels:
+
+```txt
+DAYS
+HOURS
+MINUTES
+SECONDS
+```
+
+Progress caption:
+
+```txt
+REVEAL PROGRESS
+```
+
+Avoid bulky glass cards. Each countdown value should feel integrated into the layout.
+
+---
+
+# 6. Replace the Existing Bad 3D Visual Completely
+
+The current 3D visual does not meet the quality bar. Delete it and rebuild the visual direction.
+
+Do not use:
+
+* A generic rotating sphere
+* A glowing orb
+* A rough low-quality face
+* A cartoon model
+* A heavy external model
+* Excessive particles
+* Bright cyberpunk effects
+* Random floating geometric shapes
+
+## New Visual Direction
+
+Create a refined green **Digital Skin Twin Reveal**.
+
+The ideal visual is a human face-inspired sculpture emerging softly from darkness.
+
+Use this priority order:
+
+1. Use an existing polished, optimized face-mask GLB only when the repository already includes a suitable high-quality asset.
+2. Otherwise create an elegant procedural line-based face silhouette.
+3. If procedural 3D does not look premium, use a layered 2.5D SVG face-contour composition with depth, parallax, soft lighting, and scan animation.
+
+Do not force a poor-quality 3D result. The visual must look polished.
+
+### Visual Details
+
+Include:
+
+* Symmetrical face silhouette
+* Smooth jawline
+* Forehead contour
+* Cheek contours
+* Subtle nose bridge
+* Fine facial contour lines
+* Thin scanning line moving slowly from top to bottom
+* Very subtle green rim lighting
+* Soft cream-green highlights
+* Low-intensity background spotlight
+* Slight pointer-follow parallax
+* Gentle breathing-like motion
+* Very small controlled rotation
+* Subtle reveal progression tied to countdown percentage
+
+The face should feel partially hidden and gradually revealed.
+
+### Green Reveal Logic
+
+As the countdown progresses:
+
+* Reveal more facial contour lines
+* Increase sculpture opacity slightly
+* Increase soft green ambient glow subtly
+* Shift scan-line position
+* Never make the animation distracting
+
+At launch completion, reveal the face fully and show:
+
+```txt
+DASZZ IS NOW LIVE
+Your skin. Understood.
+```
+
+Performance requirements:
+
+* Lazy-load the visual
+* Use a polished fallback immediately
+* Cap DPR around `[1, 1.5]`
+* Reduce animation complexity on mobile
+* Pause animation when the tab is inactive
+* Respect `prefers-reduced-motion`
+* Prevent layout shifts
+* Keep the page smooth on mid-range Android devices
+
+---
+
+# 7. Add a Premium Transition Section
+
+After the hero, create an editorial statement section.
+
+Use large but restrained typography:
+
+```txt
+SKINCARE HAS ALWAYS BEEN PERSONAL.
+UNDERSTANDING IT SHOULD BE TOO.
+```
+
+Supporting text:
+
+```txt
+Daszz is being built to help you observe meaningful changes, understand your skin more clearly, and make better-informed skincare decisions over time.
+```
+
+Design:
+
+* Use plenty of spacing
+* Add a thin green divider
+* Include subtle text-reveal animation
+* Avoid enclosing everything inside a card
+* Use a faint skin-texture-inspired background pattern
+
+---
+
+# 8. Redesign the Core Experience Section
+
+Create three refined feature panels:
+
+## Understand
+
+```txt
+See your skin more clearly with personalized insights designed to make progress easier to understand.
+```
+
+## Track
+
+```txt
+Follow meaningful changes over time with a digital skin twin that evolves with your skincare journey.
+```
+
+## Evolve
+
+```txt
+Build a smarter routine that adapts as your skin, products, and habits change.
+```
+
+Design rules:
+
+* Use elegant editorial panels
+* Include subtle line illustrations or contour motifs
+* Avoid oversized icons
+* Use thin borders
+* Add restrained hover animations
+* Do not use three generic white cards in a row
+* Use a staggered layout on desktop
+* Stack naturally on mobile
+
+---
+
+# 9. Digital Skin Twin Section
+
+Create a dedicated section that visually explains the Daszz differentiator.
+
+Headline:
+
+```txt
+MEET YOUR DIGITAL SKIN TWIN
+```
+
+Copy:
+
+```txt
+A living view of your skincare journey. Track visible changes, understand patterns, and build a clearer picture of how your skin evolves over time.
+```
+
+Show subtle data labels around the face visual:
+
+```txt
+SKIN PROGRESS
+ROUTINE INSIGHTS
+VISIBLE CHANGES
+PRODUCT CONTEXT
+```
+
+These should be visual product concepts, not medical claims.
+
+Add a CTA:
+
+```txt
+Explore the vision
+```
+
+Link it to the existing `/digital-skin-twin` SEO page.
+
+---
+
+# 10. Redesign the Stats Strip
+
+Use a premium horizontal reveal strip rather than card blocks.
+
+Display only factual launch details:
+
+```txt
+36 HOURS
+Private reveal window
+
+12 JUN
+Launch date
+
+10:00 AM
+IST reveal time
+
+01
+A new era of skincare intelligence
+```
+
+Use thin separators and clean spacing.
+
+On mobile, stack as a two-by-two layout.
+
+Do not add fake waitlist totals, fake accuracy scores, fake customers, or fake testimonials.
+
+---
+
+# 11. Completely Redesign the Early-Access Section
+
+The early-access section must be visually prominent and fully functional.
+
+Headline:
+
+```txt
+BE FIRST TO EXPERIENCE DASZZ
+```
+
+Copy:
+
+```txt
+Join the private reveal and receive an update when Daszz goes live.
+```
+
+Form:
+
+* Name field
+* Email field
+* `Join the reveal` button
+* Loading state
+* Success state
+* Duplicate-email state
+* Error state
+* Keyboard submit support
+* Accessible labels
+* Proper focus indicators
+
+Design:
+
+* Use an elegant split layout
+* Add a soft green spotlight behind the form
+* Keep the form compact
+* Use a refined border
+* Do not use a generic white form card
+* Do not show browser alerts
+* Do not reload the page
+
+All header, hero, and lower-page `Get early access` buttons must scroll smoothly to this section and focus the email field.
+
+Keep Firestore persistence unchanged.
+
+Success message:
+
+```txt
+You’re on the list. We’ll let you know when Daszz is revealed.
+```
+
+Duplicate message:
+
+```txt
+You’re already on the Daszz early-access list.
+```
+
+Error message:
+
+```txt
+We could not save your request. Please try again.
+```
+
+---
+
+# 12. Redesign FAQ
+
+Keep the FAQ SEO content, but change the appearance.
+
+Use:
+
+* Simple accordion rows
+* Thin green divider lines
+* Clear keyboard-accessible controls
+* Smooth open and close animation
+* No oversized accordion cards
+* No unnecessary icons
+* Visible focus states
+
+Keep the existing FAQ schema synchronized with visible content.
+
+---
+
+# 13. Redesign the Footer
+
+Use a spacious premium footer.
+
+Include:
+
+* Daszz wordmark
+* Short brand line:
+
+```txt
+Your skin. Understood.
+```
+
+* Navigation:
+
+  * About
+  * Personalized Skincare
+  * Digital Skin Twin
+  * Skin Tracking
+  * Learn
+  * Privacy
+  * Terms
+  * Instagram
+* Founder line:
+
+```txt
+Founded by Varneeth Varma and Sumanth.
+```
+
+* Disclaimer:
+
+```txt
+Daszz provides skincare insights and tracking tools. It does not provide medical diagnosis or replace professional medical advice.
+```
+
+* Copyright:
+
+```txt
+© 2026 Daszz. All rights reserved.
+```
+
+Use a subtle green border at the top and a deep-green background.
+
+---
+
+# 14. Apply the New Design to Every Public SEO Page
+
+The homepage must not be the only polished page.
+
+Update the UI of:
+
+```txt
+/about
+/skincare-intelligence
+/digital-skin-twin
+/skin-tracking
+/personalized-skincare
+/learn
+/learn/how-to-build-a-skincare-routine
+/learn/how-to-track-skin-changes-over-time
+/learn/what-is-a-digital-skin-twin
+/learn/understanding-acne-prone-skin
+/learn/understanding-dark-spots-and-pigmentation
+/learn/oily-dry-and-combination-skin
+/learn/why-consistency-matters-in-skincare
+/learn/how-to-evaluate-a-skincare-product
+```
+
+Create shared UI components so every page feels like one brand.
+
+For article pages:
+
+* Use a readable cream background or dark-green editorial layout
+* Keep line lengths comfortable
+* Add article metadata
+* Add breadcrumbs
+* Add related articles
+* Add CTA section
+* Add consistent footer
+* Keep headings visually clear
+* Maintain accessible contrast
+
+Do not sacrifice readability merely to keep every page dark.
+
+---
+
+# 15. Typography
+
+Use a premium editorial typography system.
+
+Use one refined display font for headings and one clean sans-serif font for body text.
+
+Recommended direction:
+
+* Display headings: elegant serif or editorial-style font
+* Body: clean modern sans-serif
+* Countdown: modern sans-serif with tabular numbers
+
+Use `next/font` where possible.
+
+Design rules:
+
+* Avoid oversized text on mobile
+* Use comfortable paragraph widths
+* Use clear hierarchy
+* Use letter spacing sparingly
+* Use uppercase only for short labels and section markers
+
+---
+
+# 16. Animation System
+
+Create one cohesive animation language.
+
+Use:
+
+* Slow fade-up entrance
+* Gentle blur-to-focus reveal
+* Subtle line drawing
+* Controlled parallax
+* Soft glow transitions
+* Countdown-number transitions
+* Minimal section reveals
+
+Avoid:
+
+* Excessive bouncing
+* Fast rotations
+* Overdone scroll effects
+* Dramatic zooming
+* Heavy animation on every element
+* Anything that hurts readability
+
+Respect `prefers-reduced-motion`.
+
+---
+
+# 17. Accessibility and SEO Preservation
+
+After redesigning, confirm:
+
+* Visible text remains server-rendered
+* Important text is not trapped inside canvas elements
+* Each page retains one clear `<h1>`
+* Metadata remains unique
+* Canonical URLs remain correct
+* Sitemap remains valid
+* Robots file remains valid
+* JSON-LD remains valid
+* FAQ schema matches visible FAQs
+* All buttons are keyboard accessible
+* Forms retain labels
+* Focus states are visible
+* Text contrast is sufficient
+* Images retain meaningful alt text
+* Decorative visuals use empty alt text
+* The 3D fallback has an accessible description
+
+Do not remove SEO content to make the website visually minimal.
+
+---
+
+# 18. Responsive Testing
+
+Test the redesigned UI at:
+
+```txt
+360px
+390px
+768px
+1024px
+1440px
+```
+
+Verify:
+
+* No horizontal overflow
+* Countdown fits comfortably
+* Navigation works
+* Mobile menu works
+* Text remains readable
+* Hero layout feels balanced
+* Face visual does not block text
+* Early-access form works
+* Footer links are usable
+* SEO article pages remain readable
+* Animations remain smooth
+
+---
+
+# 19. Validation Commands
+
+Run the correct package-manager equivalents of:
+
+```bash
+npm run lint
+npm run build
+```
+
+Fix every build error before stopping.
+
+Also test:
+
+1. Countdown timer
+2. Header CTA scrolling
+3. Hero CTA scrolling
+4. Email-input auto-focus
+5. Invalid-email state
+6. Valid Firestore submission
+7. Duplicate-email handling
+8. Form success state
+9. 3D fallback state
+10. Reduced-motion state
+11. Mobile responsiveness
+12. Homepage metadata
+13. Sitemap route
+14. Robots route
+15. JSON-LD rendering
+16. Public SEO-page navigation
+
+---
+
+# 20. Final Implementation Report
+
+At the end, provide:
+
+* Files changed
+* Components created
+* Shared theme tokens added
+* Homepage sections redesigned
+* Public SEO pages redesigned
+* 3D or 2.5D approach selected
+* Form functionality verification
+* Mobile verification result
+* Accessibility verification result
+* SEO preservation result
+* Lint result
+* Build result
+* Any remaining manual tasks
+
+Do not stop after giving a plan. Redesign, test, fix issues, and complete the implementation.
