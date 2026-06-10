@@ -1,0 +1,40 @@
+import { useEffect, useState } from "react";
+import { LAUNCH_TIME } from "@/lib/launch-config";
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import VisionSection from "@/components/VisionSection";
+import ExperiencePoints from "@/components/ExperiencePoints";
+import LaunchStrip from "@/components/LaunchStrip";
+import EarlyAccessForm from "@/components/EarlyAccessForm";
+import FAQ from "@/components/FAQ";
+import FounderSection from "@/components/FounderSection";
+import Footer from "@/components/Footer";
+
+export default function Home() {
+  const [isLive, setIsLive] = useState(false);
+
+  useEffect(() => {
+    const check = () => {
+      if (Date.now() >= LAUNCH_TIME.getTime()) setIsLive(true);
+    };
+    check();
+    const id = setInterval(check, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div className="min-h-[100dvh] bg-background text-foreground flex flex-col font-sans antialiased">
+      <Header />
+      <main className="flex-1">
+        <HeroSection isLive={isLive} />
+        <LaunchStrip />
+        <VisionSection />
+        <ExperiencePoints />
+        {!isLive && <EarlyAccessForm />}
+        <FAQ />
+        <FounderSection />
+      </main>
+      <Footer />
+    </div>
+  );
+}

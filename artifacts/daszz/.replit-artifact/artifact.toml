@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Daszz Launch"
+version = "1.0.0"
+id = "artifacts/daszz"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21884
+
+[services.development]
+run = "pnpm --filter @workspace/daszz run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/daszz", "run", "build" ]
+publicDir = "artifacts/daszz/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21884"
+BASE_PATH = "/"
