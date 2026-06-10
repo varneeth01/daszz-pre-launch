@@ -91,7 +91,7 @@ export default function HeroSection({ isLive }: { isLive: boolean }) {
           <p className="text-base leading-relaxed mb-3 max-w-md" style={{ color: "#C9CEC3" }}>
             A new era of personalized skincare intelligence is about to be revealed.
           </p>
-          <p className="text-sm leading-relaxed mb-12 max-w-md" style={{ color: "#9DAEA4" }}>
+          <p className="text-sm leading-relaxed mb-6 sm:mb-12 max-w-md" style={{ color: "#9DAEA4" }}>
             Track meaningful changes. Understand your skin more clearly. Build a routine that evolves with you.
           </p>
 
@@ -147,12 +147,12 @@ export default function HeroSection({ isLive }: { isLive: boolean }) {
           )}
         </motion.div>
 
-        {/* Right column — 3D scene */}
+        {/* Right column — 3D scene (desktop only; hidden on mobile to avoid blank space) */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, delay: 0.4 }}
-          className="h-[380px] lg:h-[640px] w-full relative"
+          className="hidden lg:block lg:h-[640px] w-full relative"
           aria-hidden
         >
           {webglAvailable === null ? (

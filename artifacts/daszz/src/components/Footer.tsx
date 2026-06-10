@@ -114,7 +114,7 @@ export default function Footer() {
               Founded by Varneeth Varma and Sumanth.
             </p>
           </div>
-          <p className="text-[10px] max-w-xs text-right leading-relaxed" style={{ color: "#9DAEA4", opacity: 0.4 }}>
+          <p className="text-[10px] max-w-xs text-left md:text-right leading-relaxed" style={{ color: "#9DAEA4", opacity: 0.4 }}>
             Daszz provides skincare insights and tracking tools. It does not provide medical diagnosis or replace professional medical advice.
           </p>
         </div>

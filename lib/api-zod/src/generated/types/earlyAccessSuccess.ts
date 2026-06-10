@@ -6,6 +6,6 @@
  * OpenAPI spec version: 0.1.0
  */
 
-export * from './earlyAccessInput';
-export * from './earlyAccessSuccess';
-export * from './healthStatus';
+export interface EarlyAccessSuccess {
+  success: boolean;
+}

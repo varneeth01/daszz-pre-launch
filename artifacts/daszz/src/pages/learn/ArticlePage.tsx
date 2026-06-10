@@ -49,6 +49,9 @@ export default function ArticlePage({ slug }: Props) {
         title={`${article.title} | Daszz`}
         description={article.description}
         canonical={`${SITE_URL}/learn/${article.slug}`}
+        ogType="article"
+        publishedTime={article.publishedAt}
+        modifiedTime={article.updatedAt}
       />
       <JsonLd data={schema} />
       <ArticleLayout

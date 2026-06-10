@@ -40,7 +40,7 @@ export default function ExperiencePoints() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className="p-10 group transition-colors duration-300"
+              className="p-6 md:p-10 group transition-colors duration-300"
               style={{ background: "#07110D" }}
               onMouseEnter={e => { e.currentTarget.style.background = "rgba(28,73,57,0.35)"; }}
               onMouseLeave={e => { e.currentTarget.style.background = "#07110D"; }}

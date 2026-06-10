@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: early-access
+    description: Early access lead capture
 paths:
   /healthz:
     get:
@@ -24,6 +26,29 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /early-access:
+    post:
+      operationId: submitEarlyAccess
+      tags: [early-access]
+      summary: Submit early access lead
+      description: Capture a new early access signup lead
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EarlyAccessInput"
+      responses:
+        "201":
+          description: Lead created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EarlyAccessSuccess"
+        "400":
+          description: Invalid input
+        "409":
+          description: Email already registered
 components:
   schemas:
     HealthStatus:
@@ -33,4 +58,27 @@ components:
           type: string
       required:
         - status
-
+    EarlyAccessInput:
+      type: object
+      required: [name, email]
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        source:
+          type: string
+          maxLength: 120
+        launchCampaign:
+          type: string
+          maxLength: 120
+    EarlyAccessSuccess:
+      type: object
+      required: [success]
+      properties:
+        success:
+          type: boolean

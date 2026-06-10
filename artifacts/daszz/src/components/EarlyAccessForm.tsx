@@ -108,7 +108,7 @@ export default function EarlyAccessForm() {
               <div
                 role="status"
                 aria-live="polite"
-                className="p-12 text-center"
+                className="p-8 sm:p-12 text-center"
                 style={{ border: "1px solid rgba(183,228,199,0.14)", background: "rgba(11,23,18,0.6)" }}
               >
                 <div className="flex justify-center mb-6">
@@ -137,7 +137,7 @@ export default function EarlyAccessForm() {
               <div
                 role="status"
                 aria-live="polite"
-                className="p-12 text-center"
+                className="p-8 sm:p-12 text-center"
                 style={{ border: "1px solid rgba(183,228,199,0.14)", background: "rgba(11,23,18,0.6)" }}
               >
                 <p className="font-display text-2xl mb-3" style={{ color: "#F4F1E8" }}>Already on the list.</p>
@@ -149,7 +149,7 @@ export default function EarlyAccessForm() {
               <form
                 onSubmit={handleSubmit}
                 noValidate
-                className="space-y-5 p-10"
+                className="space-y-5 p-6 sm:p-10"
                 style={{ border: "1px solid rgba(183,228,199,0.12)", background: "rgba(11,23,18,0.5)" }}
               >
                 {/* Name */}

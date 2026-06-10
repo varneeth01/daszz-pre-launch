@@ -3,7 +3,8 @@ export const SITE_URL =
 
 export const SITE_NAME = "Daszz";
 
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.svg`;
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/opengraph.jpg`;
+export const DEFAULT_OG_IMAGE_ALT = "Daszz — Personalized Skincare Intelligence, launching June 12 2026";
 
 export interface PageMeta {
   title: string;
@@ -12,6 +13,7 @@ export interface PageMeta {
   ogTitle?: string;
   ogDescription?: string;
   ogImage?: string;
+  ogImageAlt?: string;
   noindex?: boolean;
 }
 
@@ -23,6 +25,7 @@ export function buildMeta(meta: PageMeta): Required<PageMeta> {
     ogTitle: meta.ogTitle ?? meta.title,
     ogDescription: meta.ogDescription ?? meta.description,
     ogImage: meta.ogImage ?? DEFAULT_OG_IMAGE,
+    ogImageAlt: meta.ogImageAlt ?? DEFAULT_OG_IMAGE_ALT,
     noindex: meta.noindex ?? false,
   };
 }

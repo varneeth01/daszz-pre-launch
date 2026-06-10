@@ -16,10 +16,8 @@ export default function LaunchStrip() {
           {stats.map((s, i) => (
             <div
               key={s.label}
-              className="px-6 py-5 text-center"
-              style={{
-                borderRight: i < stats.length - 1 ? "1px solid rgba(183,228,199,0.07)" : "none",
-              }}
+              className="px-6 py-5 text-center border-r even:border-r-0 md:even:border-r md:last:border-r-0"
+              style={{ borderColor: "rgba(183,228,199,0.07)" }}
             >
               <div
                 className="text-xl font-light mb-1 tracking-[0.1em]"
